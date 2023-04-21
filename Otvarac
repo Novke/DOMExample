@@ -1,0 +1,58 @@
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
+
+/**
+ *
+ * @author Novica
+ */
+public class Otvarac {
+    public Otvarac(){
+        try {
+    File file = new File("src/main/resources/resursi/TestStatement.xml");
+    DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+    DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
+    Document doc = dBuilder.parse(file);
+    doc.getDocumentElement().normalize();
+    
+    NodeList listaRacuna = doc.getElementsByTagName("stmttrn");
+    for (int i = 0; i < listaRacuna.getLength(); i++){
+        Node r = listaRacuna.item(i);
+        if (r.getNodeType() == Node.ELEMENT_NODE) {
+            Element racun = (Element) r;
+            System.out.print("\nTransakcija: \n");
+            
+            Node nKurs = racun.getElementsByTagName("curdef").item(0);
+            Node nIznos= racun.getElementsByTagName("trnamt").item(0);
+            Node nDatum= racun.getElementsByTagName("dtposted").item(0);
+            
+            System.out.println("Iznos: " + nIznos.getTextContent() + " " + nKurs.getTextContent());
+            System.out.println("Datum: " + nDatum.getTextContent().split("T")[0]);
+            
+            Node nPayeeInfo = racun.getElementsByTagName("payeeinfo").item(0);
+                Node nPayeeInfoName = ((Element)nPayeeInfo).getElementsByTagName("name").item(0);
+                Node nPayeeCity = ((Element)nPayeeInfo).getElementsByTagName("city").item(0);
+                
+                System.out.println("Uplatilac: " + nPayeeInfoName.getTextContent() +"\n" + nPayeeCity.getTextContent());
+                
+            Node nPayeeAcc = racun.getElementsByTagName("payeeaccountinfo").item(0);
+                Node nAccId = ((Element)nPayeeAcc).getElementsByTagName("acctid").item(0);
+                Node nBank  = ((Element)nPayeeAcc).getElementsByTagName("bankname").item(0);
+                
+                System.out.println("Racun: " + nAccId.getTextContent() + "(" + nBank.getTextContent() + ")");
+                
+        }
+    }
+    
+    } catch (Exception e){
+    e.printStackTrace();
+}
+    }
+    
+    public static void main(String[] args) {
+        new Otvarac();
+    }
+}
