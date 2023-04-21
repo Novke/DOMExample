@@ -1,0 +1,62 @@
+This XML file does not appear to have any style information associated with it. The document tree is shown below.
+<pmtnotification>
+<notiftype>ibank.payment.notification.ledger</notiftype>
+<status>
+<code>0</code>
+<severity>INFO</severity>
+<detail/>
+</status>
+<curdef>RSD</curdef>
+<acctid>170-0010023000000-12</acctid>
+<stmtnumber>29</stmtnumber>
+<ledgerbal>
+<balamt>91764749.91</balamt>
+<dtasof>2023-03-31T00:00:00</dtasof>
+</ledgerbal>
+<availbal>
+<balamt>109264749.91</balamt>
+<dtasof>2023-04-04T00:00:00</dtasof>
+</availbal>
+<reservedfunds/>
+<trnlist count="2">
+<stmttrn>
+...
+</stmttrn>
+<stmttrn>
+<trntype>ibank.payment.pp3</trntype>
+<trnuid>1YYYYYYT45K8LGX8</trnuid>
+<fitid>20230404700246//00446764341</fitid>
+<benefit>CREDIT</benefit>
+<payeeinfo>
+<name>COMPANY 2</name>
+<city>OMLADINSKIH BRIGADA 3,BEOGRAD NOVI BEOGR</city>
+</payeeinfo>
+<payeeaccountinfo>
+<acctid>265-1220050000001-21</acctid>
+<bankid>265</bankid>
+<bankname>Raiffeisen banka a.d. Beograd</bankname>
+</payeeaccountinfo>
+<dtposted>2023-04-04T00:00:00</dtposted>
+<trnamt>2500000.00</trnamt>
+<purpose>PROMET ROBE I USLUGA FIN. POT.</purpose>
+<purposecode>221</purposecode>
+<curdef>RSD</curdef>
+<payeerefnumber>123/2023</payeerefnumber>
+<trnplace/>
+<dtuser>2023-04-04T00:00:00</dtuser>
+<dtavail>2023-04-04T00:00:00</dtavail>
+<refnumber/>
+<refmodel/>
+<payeerefmodel>00</payeerefmodel>
+<urgency>0</urgency>
+<fee>0</fee>
+<statusinfo>
+<code/>
+<timeposted/>
+</statusinfo>
+</stmttrn>
+</trnlist>
+<extension>
+...
+</extension>
+</pmtnotification>
